@@ -111,7 +111,7 @@
 
 - name: Update ACM creds
   include_tasks: update_acm_creds.yml
-  when: not create_cluster
+  when: not create_cluster and acm_enabled
 
 - name: Restore ADO Data
   include_tasks: restore_ado.yml
