@@ -51,33 +51,10 @@
   set_fact:
     subnet_id_a: "{{ subnet_facts.subnets[0].subnet_id }}"
 
-- name: Gather subnet facts
-  ec2_vpc_subnet_info:
-    filters:
-      vpc-id: "{{ vpc_id }}"
-      availability-zone: "{{ region }}b"
-      "tag:use": private
-  register: subnet_facts
-
 - name: Set Subnet ID fact
   set_fact:
     subnet_id_b: "{{ subnet_facts.subnets[0].subnet_id }}"
 
-- name: Gather subnet facts
-  ec2_vpc_subnet_info:
-    filters:
-      vpc-id: "{{ vpc_id }}"
-      availability-zone: "{{ region }}c"
-      "tag:use": private
-  register: subnet_facts
-
 - name: Set Subnet ID fact
   set_fact:
     subnet_id_c: "{{ subnet_facts.subnets[0].subnet_id }}"
-
-- name: Gather subnet facts
-  ec2_vpc_subnet_info:
-    filters:
-      vpc-id: "{{ vpc_id }}"
-      "tag:use": private
-  register: subnet_facts

@@ -26,6 +26,8 @@ cw_secrets: "{{ lookup('aws_secret', 'ocp-cloudwatch-svc-user', region=vars['reg
 # aws user for install
 ocp_install_secrets: "{{ lookup('aws_secret', 'ocp-install-service-user', region=vars['region']) }}"
 credentials_mode: Passthrough
+installer_provisioned_vpc: true
+installer_provisioned_hz: true
 
 # OCP Install Secrets
 pull_secret: "{{ lookup('aws_secret', 'ocp_pull_secret', region=vars['region']) | string }}"
